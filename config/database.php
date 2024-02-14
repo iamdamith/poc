@@ -45,12 +45,12 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'AZURE_MYSQL_HOST'),
-            'port' => env('DB_PORT', 'AZURE_MYSQL_PORT'),
-            'database' => env('DB_DATABASE', 'AZURE_MYSQL_DBNAME'),
-            'username' => env('DB_USERNAME', 'AZURE_MYSQL_USERNAME'),
-            'password' => env('DB_PASSWORD', 'AZURE_MYSQL_PASSWORD'),
+            'url' => env('DATABASE_URL', ''),
+            'host' => env('DB_HOST', getenv('AZURE_MYSQL_HOST')),
+            'port' => env('DB_PORT', getenv('AZURE_MYSQL_PORT')),
+            'database' => env('DB_DATABASE', getenv('AZURE_MYSQL_DBNAME')),
+            'username' => env('DB_USERNAME', getenv('AZURE_MYSQL_USERNAME')),
+            'password' => env('DB_PASSWORD', getenv('AZURE_MYSQL_PASSWORD')),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -59,7 +59,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA', 'AZURE_MYSQL_FLAG'),
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA', getenv('AZURE_MYSQL_FLAG')),
             ]) : [],
         ],
 
