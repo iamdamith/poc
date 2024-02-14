@@ -27,7 +27,8 @@ Route::get('/', function () {
 
     Route::get('/sso/sign-in', [MicrosoftSSOController::class, 'signin']);
     Route::get('/sso/redirect', [MicrosoftSSOController::class, 'redirect']);
-    
+    Route::get('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'redirect']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -38,6 +39,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/sso/logout', [MicrosoftSSOController::class, 'logout']);
-    Route::get('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'redirect']);
 
 });
