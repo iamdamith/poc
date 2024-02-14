@@ -102,6 +102,8 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2AA0885E869E488281C4B50BF4A21E6F }}
           package: .
 
+      - name: CLear Config
+        run: php artisan config:clear
+
       - name: Run migrations
-        shell: bash
         run: php artisan migrate --force
