@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => env('TIMEZONE', getenv('TIMEZONE')),
+    'timezone' => 'Australia/Melbourne',
 
     /*
     |--------------------------------------------------------------------------
