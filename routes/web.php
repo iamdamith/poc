@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
     Route::get('/sso/sign-in', [MicrosoftSSOController::class, 'signin']);
-    Route::get('/sso/redirect', [MicrosoftSSOController::class, 'redirect']);
+    Route::post('/sso/redirect', [MicrosoftSSOController::class, 'redirect']);
     // Route::get('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'redirect']);
     Route::post('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'redirect']);
 
