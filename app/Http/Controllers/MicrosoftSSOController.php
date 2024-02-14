@@ -22,9 +22,9 @@ public function signin() {
         return redirect($azureLogoutUrl);
     }
 
-    public function redirect() {
-        $azureUser = Socialite::driver('azure')->user();
-
+    public function redirect() { 
+        $azureUser = Socialite::driver('azure')->stateless()->user();
+dd($azureUser);
         $user = User::updateOrCreate([
             'name' => $azureUser->name,
             'email' => $azureUser->email,
