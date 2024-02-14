@@ -103,7 +103,7 @@ jobs:
           package: .
 
       - name: Clear config
-        run: php /home/site/wwwroot/artisan config:clear
+        run: php artisan config:clear
 
-      - name: Run migrations
-        run: php /home/site/wwwroot/artisan migrate --force
+      # - name: Run migrations
+      #   run: php artisan migrate --force
