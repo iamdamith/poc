@@ -55,9 +55,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', getenv('APP_URL')),
 
-    'asset_url' => env('ASSET_URL'),
+    'asset_url' => env('ASSET_URL', getenv('ASSET_URL')),
 
     /*
     |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('TIMEZONE', getenv('TIMEZONE')),,
 
     /*
     |--------------------------------------------------------------------------
