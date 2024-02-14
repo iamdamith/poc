@@ -2,27 +2,23 @@
 server {
     listen 8080;
     listen [::]:8080;
-    server_name casey-poc.azurewebsites.net;
-    root /home/sute/wwwroot/public
+    root /home/site/wwwroot/public;
+    index  index.php index.html index.htm;
+    server_name  example.com www.example.com;
     port_in_redirect off;
+    #This is just to fix request length too long issue
+    client_max_body_size 5M;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "1; mode=block";
     add_header X-Content-Type-Options "nosniff";
-
-    index index.html index.htm index.php;
-
-    charset utf-8;
-
-
+    
     location / {
-        try_files $uri $uri/ /index.php?$query_string;
+      try_files $uri $uri/ /index.php$is_args$args;
     }
 
-    location = /favicon.ico { access_log off; log_not_found off; }
-    location = /robots.txt  { access_log off; log_not_found off; }
-
-    error_page 404 /index.php;
+    location = /favicon.ico { log_not_found off; access_log off; }
+    location = /robots.txt { log_not_found off; access_log off; }
 
     # Disable .git directory
     location ~ /\.git {
@@ -48,9 +44,5 @@ server {
         fastcgi_buffers 4 256k;
         fastcgi_busy_buffers_size 256k;                                            
         fastcgi_temp_file_write_size 256k;
-    }
-
-    location ~ /\.(?!well-known).* {
-        deny all;
     }
 }
