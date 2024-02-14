@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MicrosoftSSOController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,4 +33,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('/sso/logout', [MicrosoftSSOController::class, 'logout']);
+    Route::get('/sso/sign-in', [MicrosoftSSOController::class, 'signin']);
+    Route::get('/sso/redirect', [MicrosoftSSOController::class, 'redirect']);
+
 });

@@ -172,6 +172,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
 
         Spatie\Permission\PermissionServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class
     ])->toArray(),
 
     /*
