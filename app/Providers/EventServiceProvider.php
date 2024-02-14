@@ -7,6 +7,7 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use \SocialiteProviders\Manager\SocialiteWasCalled;
+use \SocialiteProviders\Azure\AzureExtendSocialite;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -21,7 +22,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         SocialiteWasCalled::class => [
             // add your listeners (aka providers) here
-            'SocialiteProviders\\Zoho\\ZohoExtendSocialite@handle',
+            AzureExtendSocialite::class.'@handle',
         ],
     ];
 
