@@ -26,11 +26,9 @@ public function signin() {
         $azureUser = Socialite::driver('azure')->user();
 
         $user = User::updateOrCreate([
-            'github_id' => $githubUser->id,
-        ], [
             'name' => $azureUser->name,
             'email' => $azureUser->email,
-            'password' => Hash::make("123123123")
+            'password' => "123123123"
         ]);
 
         Auth::login($user);
