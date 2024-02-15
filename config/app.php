@@ -172,7 +172,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
 
         Spatie\Permission\PermissionServiceProvider::class,
-        \SocialiteProviders\Manager\ServiceProvider::class
+        VinhHoang\OAuth2\AzureServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -188,6 +188,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Azure' =>  VinhHoang\OAuth2\Facades\Azure::class
     ])->toArray(),
 
 ];
