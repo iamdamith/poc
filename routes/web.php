@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\MSGraphLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,9 @@ Route::get('/', function () {
 
     Route::get('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'callback']);
     Route::post('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'callback']);
+
+    Route::get('/msgraph/redirect', [MSGraphLoginController::class, 'connect']);
+    Route::get('/msgraph/callback', [MSGraphLoginController::class, 'callback']);
 
 Route::middleware([
     'auth:sanctum',

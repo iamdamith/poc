@@ -6,6 +6,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Listeners\NewMicrosoft365SignInListener;
+use Dcblogdev\MsGraph\Events\NewMicrosoft365SignInEvent;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,10 +20,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
-            // ... other providers
-            \SocialiteProviders\Azure\AzureExtendSocialite::class.'@handle',
-        ],
+        NewMicrosoft365SignInEvent::class => [
+        NewMicrosoft365SignInListener::class, 'handle'
+        ]
     ];
 
     /**
