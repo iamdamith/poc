@@ -37,5 +37,10 @@ return [
         'tenant' => env('AZURE_TENANT_ID', getenv('AZURE_TENANT_ID')),
         'proxy' => env('PROXY', getenv('PROXY'))  // optionally
     ],
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID', getenv('AZURE_GITHUB_CLIENT_ID')),
+        'client_secret' => env('GITHUB_CLIENT_SECRET', getenv('AZURE_GITHUB_CLIENT_SECRET')),
+        'redirect' => 'https://casey-poc.azurewebsites.net/github/callback',
+    ],
 
 ];

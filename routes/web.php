@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\MicrosoftSSOController;
+use App\Http\Controllers\GithubOAuthController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,10 @@ Route::get('/', function () {
 
     Route::get('/sso/sign-in', [MicrosoftSSOController::class, 'signin']);
     Route::post('/sso/redirect', [MicrosoftSSOController::class, 'redirect']);
+
+    Route::get('/github/redirect', [GithubOAuthController::class, 'redirect']);
+    Route::get('/github/callback', [GithubOAuthController::class, 'callback']);
+    
     // Route::get('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'redirect']);
     Route::post('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'redirect']);
 
