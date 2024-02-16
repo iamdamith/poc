@@ -12,17 +12,17 @@ class MicrosoftSSOController extends Controller
 {
 
 
-public function signin() {
+public function redirect() {
     return Azure::redirect();
 }
     public function logout(Request $request) 
     {
         // Auth::guard()->logout();
-        $redirect_url = "http://example.com";
+        $redirect_url = env('APP_URL');
         return redirect(Azure::getLogoutUrl($redirect_url));
     }
 
-    public function redirect() { 
+    public function callback() { 
         $token = Azure::getAccessToken('authorization_code', [
             'code' => $_GET['code'],
             'resource' => 'https://graph.windows.net',
