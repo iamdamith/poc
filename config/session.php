@@ -155,7 +155,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN'),
+    'domain' => env('SESSION_DOMAIN', getenv('AZURE_SESSION_DOMAIN')),
 
     /*
     |--------------------------------------------------------------------------
