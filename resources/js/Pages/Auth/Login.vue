@@ -87,6 +87,6 @@ const submit = () => {
             </div>
         </form>
 
-        <div class="msgraph_login"><a href="{{ route('connect') }}">Login with your Microsoft Account</a></div>
+        <div class="msgraph_login"><Link :href="route('msgraph.connect')">Login with your Microsoft Account</Link></div>
     </AuthenticationCard>
 </template>

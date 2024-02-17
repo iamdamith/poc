@@ -31,7 +31,7 @@ Route::get('/', function () {
     Route::get('/github/redirect', [GithubOAuthController::class, 'redirect']);
     Route::get('/github/connect', [GithubOAuthController::class, 'connect']);
 
-    Route::get('/msgraph/connect', [MSGraphLoginController::class, 'connect']);
+    Route::get('/msgraph/connect', [MSGraphLoginController::class, 'connect'])->name('msgraph.connect');;
 
     Route::group(['middleware' => ['web', 'MsGraphAuthenticated'], 'prefix' => 'app'], function(){
         Route::get('/', [MSGraphLoginController::class, 'app'])->name('app');
@@ -48,6 +48,6 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('/sso/logout', [MicrosoftSSOController::class, 'logout']);
+    Route::get('/msgraph/logout', [MSGraphLoginController::class, 'logout']);
 
 });
