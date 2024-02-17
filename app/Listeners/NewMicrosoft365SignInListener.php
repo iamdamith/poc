@@ -12,12 +12,15 @@ class NewMicrosoft365SignInListener
 {
     public function handle($event)
     {
-        $user  = User::where('email', $event->token['info']['mail'])->first();
+        //To-do
+        $mail = $event->token['info']['mail'] ?? $event->token['info']['userPrincipalName'];
+        
+        $user  = User::where('email', $mail)->first();
 
         if(!$user){
             $user  = User::create([
                 'name'     => $event->token['info']['displayName'],
-                'email'    => $event->token['info']['mail'] ?? $event->token['info']['userPrincipalName'],
+                'email'    => $mail,
                 'password' => Hash::make(Str::random(40)),
             ]);
         }
