@@ -20,9 +20,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        NewMicrosoft365SignInEvent::class => [
-            NewMicrosoft365SignInListener::class, 'handle'
-        ]
+        NewMicrosoft365SignInEvent::class,
+            [NewMicrosoft365SignInListener::class, 'handle']
+        
     ];
 
     /**

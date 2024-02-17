@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', '/msgraph/connect', '/msgraph/app'],
+    'paths' => ['*', 'api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['login.microsoftonline.com'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
