@@ -35,7 +35,7 @@ Route::get('/', function () {
 
     Route::group(['middleware' => ['web', 'MsGraphAuthenticated'], 'prefix' => 'app'], function(){
         Route::get('/', [MSGraphLoginController::class, 'app'])->name('app');
-        Route::get('logout', [MSGraphLoginController::class, 'logout'])->name('logout');
+        Route::get('logout', [MSGraphLoginController::class, 'logout']);
     });
 
 

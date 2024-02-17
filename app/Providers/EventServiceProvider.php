@@ -21,7 +21,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         NewMicrosoft365SignInEvent::class => [
-        NewMicrosoft365SignInListener::class, 'handle'
+            NewMicrosoft365SignInListener::class, 'handle'
         ]
     ];
 

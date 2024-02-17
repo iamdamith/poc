@@ -20,6 +20,8 @@ class MSGraphLoginController extends Controller
 
     public function logout()
     {
+        Auth::logout();
+        
         return MsGraph::disconnect();
     }
 }
