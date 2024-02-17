@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', '/msgraph/connect', '/msgraph/app'],
 
     'allowed_methods' => ['*'],
 
