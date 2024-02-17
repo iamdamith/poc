@@ -15,7 +15,6 @@ class MSGraphCORS
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->getBaseUrl == "https://login.microsoftonline.com")
             return $next($request)
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods','GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS')
