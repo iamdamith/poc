@@ -10,7 +10,7 @@ class MSGraphLoginController extends Controller
 {
     public function app()
     {
-        dd(MsGraph::get('me'));
+        return redirect('/dashboard');
     }
 
     public function connect()
