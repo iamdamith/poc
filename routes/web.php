@@ -28,17 +28,16 @@ Route::get('/', function () {
     ]);
 });
 
-    Route::get('/sso/redirect', [MicrosoftSSOController::class, 'redirect']);
-    Route::post('/sso/callback', [MicrosoftSSOController::class, 'callback']);
-
     Route::get('/github/redirect', [GithubOAuthController::class, 'redirect']);
-    Route::get('/github/callback', [GithubOAuthController::class, 'callback']);
+    Route::get('/github/connect', [GithubOAuthController::class, 'connect']);
 
-    Route::get('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'callback']);
-    Route::post('/.auth/login/aad/callback', [MicrosoftSSOController::class, 'callback']);
+    Route::get('/msgraph/connect', [MSGraphLoginController::class, 'connect']);
 
-    Route::get('/msgraph/redirect', [MSGraphLoginController::class, 'connect']);
-    Route::get('/msgraph/callback', [MSGraphLoginController::class, 'callback']);
+    Route::group(['middleware' => ['web', 'MsGraphAuthenticated'], 'prefix' => 'app'], function(){
+        Route::get('/', [MSGraphLoginController::class, 'app'])->name('app');
+        Route::get('logout', [MSGraphLoginController::class, 'logout'])->name('logout');
+    });
+
 
 Route::middleware([
     'auth:sanctum',

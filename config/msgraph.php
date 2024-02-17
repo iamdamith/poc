@@ -6,29 +6,29 @@ return [
     * the clientId is set from the Microsoft portal to identify the application
     * https://apps.dev.microsoft.com
     */
-    'clientId' => env('MSGRAPH_CLIENT_ID', getenv('AZURE_CLIENT_ID')),
+    'clientId' => env('MSGRAPH_CLIENT_ID', getenv('MSGRAPH_CLIENT_ID')),
 
     /*
     * set the tenant id
     */
-    'tenantId' => env('MSGRAPH_TENANT_ID', getenv('AZURE_TENANT_ID')),
+    'tenantId' => env('MSGRAPH_TENANT_ID', getenv('MSGRAPH_TENANT_ID')),
 
     /*
     * set the application secret id
     */
 
-    'clientSecret' => env('MSGRAPH_SECRET_ID', getenv('AZURE_CLIENT_SECRET')),
+    'clientSecret' => env('MSGRAPH_SECRET_ID', getenv('MSGRAPH_SECRET_ID')),
 
     /*
     * Set the url to trigger the oauth process this url should call return MsGraph::connect();
     */
-    'redirectUri' => env('MSGRAPH_OAUTH_URL', getenv('AZURE_MSGRAPH_OAUTH_URL')),
+    'redirectUri' => env('MSGRAPH_OAUTH_URL', getenv('MSGRAPH_OAUTH_URL')),
 
     /*
     * set the url to be redirected to once the token has been saved
     */
 
-    'msgraphLandingUri'  => env('AZURE_MSGRAPH_LANDING_URL'),
+    'msgraphLandingUri'  => env('MSGRAPH_LANDING_URL'),
 
     /*
     set the tenant authorize url

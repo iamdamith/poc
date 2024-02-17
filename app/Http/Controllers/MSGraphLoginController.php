@@ -8,18 +8,18 @@ use Illuminate\Support\Facades\Auth;
 
 class MSGraphLoginController extends Controller
 {
-    public function login() {
-         return MsGraph::connect();
+    public function app()
+    {
+        dd(MsGraph::get('me'));
+    }
+
+    public function connect()
+    {
+        return MsGraph::connect();
     }
 
     public function logout()
     {
         return MsGraph::disconnect();
-    }
-
-    public function callback() { 
-
-        dd(Auth::user());
- 
     }
 }
