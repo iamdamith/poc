@@ -29,7 +29,7 @@ Route::get('/', function () {
 });
 
     Route::get('/github/redirect', [GithubOAuthController::class, 'redirect']);
-    Route::get('/github/connect', [GithubOAuthController::class, 'connect']);
+    Route::get('/github/callback', [GithubOAuthController::class, 'callback']);
 
     Route::group(['middleware' => ['web', 'MSGraphCORS']], function(){
         Route::get('/msgraph/connect', [MSGraphLoginController::class, 'connect'])->name('msgraph.connect');;
