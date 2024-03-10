@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
+use App\Listeners\NewMicrosoft365SignInListener;
+use Dcblogdev\MsGraph\Events\NewMicrosoft365SignInEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use App\Listeners\NewMicrosoft365SignInListener;
-use Dcblogdev\MsGraph\Events\NewMicrosoft365SignInEvent;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -21,8 +21,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         NewMicrosoft365SignInEvent::class => [
-            NewMicrosoft365SignInListener::class
-        ]
+            NewMicrosoft365SignInListener::class,
+        ],
     ];
 
     /**

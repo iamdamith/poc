@@ -30,12 +30,12 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-    'azure' => [    
+    'azure' => [
         'client_id' => env('AZURE_CLIENT_ID', getenv('AZURE_CLIENT_ID')),
         'client_secret' => env('AZURE_CLIENT_SECRET', getenv('AZURE_CLIENT_SECRET')),
         'redirect' => env('AZURE_REDIRECT_URI', getenv('AZURE_REDIRECT_URI')),
         'tenant' => env('AZURE_TENANT_ID', getenv('AZURE_TENANT_ID')),
-        'proxy' => env('PROXY', getenv('PROXY'))  // optionally
+        'proxy' => env('PROXY', getenv('PROXY')),  // optionally
     ],
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID', getenv('AZURE_GITHUB_CLIENT_ID')),

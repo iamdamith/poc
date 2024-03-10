@@ -2,19 +2,19 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      */
     public function run(): void
     {
+
         // Create User Roles
 
         $registered_user = Role::create(['name' => 'registered']);
@@ -63,5 +63,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user3->assignRole('financial_manager');
+
     }
 }

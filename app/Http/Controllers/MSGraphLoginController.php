@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Dcblogdev\MsGraph\Facades\MsGraph;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MSGraphLoginController extends Controller
@@ -21,7 +20,7 @@ class MSGraphLoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        
+
         return MsGraph::disconnect();
     }
 }

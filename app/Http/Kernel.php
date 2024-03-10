@@ -47,7 +47,7 @@ class Kernel extends HttpKernel
         ],
         'MSGraphCORS' => [
             \App\Http\Middleware\MSGraphCORS::class,
-        ]
+        ],
     ];
 
     /**
