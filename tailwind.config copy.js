@@ -3,6 +3,8 @@ import forms from "@tailwindcss/forms";
 import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
+
+const colors = require('tailwindcss/colors')
 export default {
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
@@ -11,6 +13,7 @@ export default {
         "./resources/views/**/*.blade.php",
         "./resources/js/**/*.vue",
     ],
+    
 
     theme: {
         extend: {
@@ -18,6 +21,12 @@ export default {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
         },
+        colors: {
+            sky: colors.sky,
+            teal: colors.teal,
+            cyan: colors.cyan,
+            rose: colors.rose,
+          },
     },
 
     plugins: [forms, typography],

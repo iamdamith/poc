@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\UserRoleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GithubOAuthController;
 use App\Http\Controllers\MSGraphLoginController;
+use App\Http\Controllers\CorporateCardApplicationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -55,4 +56,8 @@ Route::middleware([
 
     Route::get('/msgraph/logout', [MSGraphLoginController::class, 'logout']);
 
+    Route::post('/finance/corporate-card-application', [CorporateCardApplicationController::class, 'store']);
+    Route::get('/finance/corporate-card-application', [CorporateCardApplicationController::class, 'create']);
 });
+
+

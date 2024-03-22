@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Models\CorporateCardApplication;
 
 class DatabaseSeeder extends Seeder
 {
@@ -63,5 +64,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user3->assignRole('financial_manager');
+
+        $user4 = User::factory()->create([
+            'email' => 'bqudamith@gmail.com',
+            'password' => bcrypt('123123123'),
+        ]);
+
+        $user4->assignRole('manager');
+
+        $cardApplications = CorporateCardApplication::factory()->count(100)->create();
     }
 }

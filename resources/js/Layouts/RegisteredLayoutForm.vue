@@ -21,7 +21,7 @@
     <body class="h-full">
     ```
   -->
-  <div class="min-h-full bg-gray-100">
+  <div class="min-h-full">
     <div class="bg-indigo-700 pb-32">
       <Disclosure as="nav" class="border-b border-indigo-300 border-opacity-25 bg-indigo-700 lg:border-none" v-slot="{ open }">
         <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
@@ -129,9 +129,9 @@
       </header>
     </div>
 
-    <main class="-mt-32 "> 
-      <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 ">
-        <div class="rounded-lg  px-5 py-6 shadow sm:px-6">
+    <main class="-mt-32">
+      <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <div class="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
           <slot/>
         </div>
       </div>

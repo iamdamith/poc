@@ -9,7 +9,7 @@ class UserRole extends Model
 {
     use HasFactory;
 
-    protected $table = 'toles';
+    protected $table = 'roles';
 
     protected $fillable = ['name', 'guard_name'];
 }
