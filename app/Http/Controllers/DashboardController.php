@@ -26,7 +26,7 @@ class DashboardController extends Controller
             $submissions = DB::table('corporate_card_applications')
             // ->groupBy('created_at')
             ->get();
-dd( $submissions);
+
 
             return Inertia::render('dashboards/Manager',[
                 'user' => $user
@@ -37,6 +37,8 @@ dd( $submissions);
             return action([FinanceOfficerDashboardController::class, 'index']);
         }
 
-        return Inertia::render('registerd');
+        return Inertia::render('dashboards/registered',[
+            'user' => $user
+        ]);
     }
 }
